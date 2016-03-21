@@ -7,10 +7,11 @@
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
       register: composer_status
+    - set_fact: composer_exists={{ composer_status.stat.exists }}
 
   roles:
     - git
     - {
       role: php,
-      when: composer_status.stat.exists
+      when: composer_exists
     }
