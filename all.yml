@@ -16,5 +16,5 @@
     - git
     - {
       role: php,
-      when: composer_exists
+      when: "{{ composer_exists }}"
     }
