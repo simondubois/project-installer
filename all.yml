@@ -11,6 +11,6 @@
   roles:
     - git
     - {
-      role: "php",
+      role: php,
       when: composer_status.stat.exists
     }
