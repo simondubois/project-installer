@@ -1,0 +1,4 @@
+
+repository: {{ git_repository }}
+
+destination: {{ ansible_env.PWD }}
