@@ -1,5 +1,7 @@
 ---
 
+# ansible-pull -U https://github.com/simondubois/project-installer.git -d . -e "git_repository=https://github.com/simondubois/budget.git" all.yml
+
 - hosts: all
 
   tasks: 
@@ -7,7 +9,8 @@
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
       register: composer_status
-    - set_fact: composer_exists={{ composer_status.stat.exists }}
+    - set_fact:
+        composer_exists: false
 
   roles:
     - git
