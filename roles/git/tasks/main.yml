@@ -2,5 +2,5 @@
 
 - name: Clone repository
   git:
-    repo: "{{ repository }}"
+    repo: "{{ git_repository }}"
     dest: "{{ destination }}"
