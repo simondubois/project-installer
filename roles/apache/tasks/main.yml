@@ -16,9 +16,11 @@
     path: "{{ item }}"
     state: absent
   with_items:
+    - /etc/apache2/sites-available/000-default.conf
+    - /etc/apache2/sites-available/default-ssl.conf
     - /etc/apache2/sites-enabled/000-default.conf
-    - /etc/apache2/sites-enabled/000-default.conf
-    - /etc/apache2/sites-enabled/default-ssl.conf
+  become: yes
+  become_user: root
   register: apache_cleaning
 
 # - name: Configure apache2 user and group
