@@ -14,4 +14,4 @@
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
     with_composer: "{{ composer_file.stat.exists }}"
-    with_apache: "{{ public_folder.stat.exists && public_folder.stat.isdir }}"
+    with_apache: "{{ public_folder.stat.exists and public_folder.stat.isdir }}"
