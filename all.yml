@@ -14,3 +14,7 @@
       role: composer,
       when: "{{ with_composer }}"
     }
+    - {
+      role: apache,
+      when: "{{ with_apache }}"
+    }

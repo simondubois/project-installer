@@ -5,7 +5,13 @@
     path: "{{ ansible_env.PWD }}/composer.json"
   register: composer_file
 
+- name: Get public folder info
+  stat: 
+    path: "{{ ansible_env.PWD }}/public"
+  register: public_folder
+
 - name: Set analyze results
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
     with_composer: "{{ composer_file.stat.exists }}"
+    with_apache: "{{ public_folder.stat.exists && public_folder.stat.isdir }}"
