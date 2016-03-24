@@ -4,7 +4,5 @@
   stat: 
     path: "{{ ansible_env.PWD }}/composer.json"
   register: composer_file
-
-- name: Set composer fact
   set_fact:
     with_composer: "{{ composer_file.stat.exists }}"
