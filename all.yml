@@ -5,13 +5,13 @@
 - hosts: all
 
   pre_tasks: 
-    - debug: msg="{{ ansible_env.PWD }}/composer.json"
     - name: Get composer.json file info
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
       register: composer_file
     - set_fact:
         composer_exists: "{{ composer_file.stat.exists }}"
+    - debug: msg="{{ composer_file }}"
 
   roles:
     - git
