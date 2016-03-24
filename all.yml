@@ -3,19 +3,16 @@
 # ansible-pull -U https://github.com/simondubois/project-installer.git -d . -e "git_repository=https://github.com/simondubois/budget.git" all.yml
 
 - hosts: all
-  gather_facts: yes
 
   tasks: 
     - name: Get composer.json file info
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
-      register: composer_status
-    - set_fact:
-        composer_exists: false
+      register: composer_file
 
   roles:
     - git
     - {
       role: php,
-      when: "{{ composer_exists }}"
+      when: "{{ composer_file.exists }}"
     }
