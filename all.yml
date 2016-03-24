@@ -9,7 +9,7 @@
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
       register: composer_status
-      set_fact:
+    - set_fact:
         composer_exists: false
 
   roles:
