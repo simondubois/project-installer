@@ -10,7 +10,7 @@
         path: "{{ ansible_env.PWD }}/composer.json"
       register: composer_file
     - set_fact:
-        composer_exists: true
+        composer_exists: "{{ composer_file.stat.exists }}"
 
   roles:
     - git
