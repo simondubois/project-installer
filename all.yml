@@ -8,5 +8,5 @@
     - analyzer
     - {
       role: php,
-      when: "{{ composer_exists }}"
+      when: "{{ with_composer }}"
     }
