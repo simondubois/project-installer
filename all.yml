@@ -4,7 +4,7 @@
 
 - hosts: all
 
-  tasks: 
+  pre_tasks: 
     - name: Get composer.json file info
       stat: 
         path: "{{ ansible_env.PWD }}/composer.json"
