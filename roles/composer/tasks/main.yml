@@ -1,0 +1,21 @@
+---
+
+- name: Get Composer version
+  command: "composer --version"
+  register: composer_version
+  ignore_errors: true
+  failed_when: false
+  changed_when: false
+
+- name: Install Composer
+  shell: "curl -sS {{ source }} | php && mv -f ./composer.phar {{ destination }}"
+  when: composer_version | failed
+
+- name: Make Composer executable
+  file:
+    path: "{{ destination }}"
+    mode: 0755
+
+- name: Upgrade Composer
+  shell: composer self-update
+  when: composer_version | success
