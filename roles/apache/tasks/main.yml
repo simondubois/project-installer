@@ -5,13 +5,12 @@
     name: apache2
   become: yes
   become_user: root
-  register: apache_installation
 
 # - name: Enable apache2 modules
 #   apache2_module: state=present name={{ item }}
 #   with_items: "{{ apache2.modules }}"
 
-- name: Remove default files
+- name: Remove default apache2 files
   file:
     path: "{{ item }}"
     state: absent
@@ -29,7 +28,9 @@
 #     - { param: APACHE_RUN_USER, value: "{{ apache2.run_as }}" }
 #     - { param: APACHE_RUN_GROUP, value: "{{ apache2.run_as }}" }
 
-# - name: "Ensure apache2 is {{ apache2.start | ternary('started','stopped') }}"
-#   service:
-#     name: apache2
-#     state: .start | ternary('restarted','stopped') }} enabled={{ apache2.service_enabled }}
+- name: Restart apache2
+  service:
+    name: apache2
+    state: restarted
+    enabled: yes
+  when: apache_cleaning.changed
