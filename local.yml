@@ -15,6 +15,10 @@
       when: "{{ with_composer }}"
     }
     - {
+      role: laravel,
+      when: "{{ with_laravel }}"
+    }
+    - {
       role: apache,
       when: "{{ with_apache }}"
     }

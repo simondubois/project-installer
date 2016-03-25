@@ -1,0 +1,2 @@
+
+logs_directory: "{{ git_destination }}/storage/logs"

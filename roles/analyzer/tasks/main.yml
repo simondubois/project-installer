@@ -1,11 +1,18 @@
 ---
 
-- name: Get composer.json file info
+- name: Detect composer.json file
   stat:
     path: "{{ git_destination }}/composer.json"
   register: composer_file
 
-- name: Get public folder info
+- name: Detect laravel in composer.json
+  command: grep -q '"laravel/framework":' "{{ git_destination }}/composer.json"
+  ignore_errors: true
+  changed_when: false
+  register: laravel_required
+  when: composer_file.stat.exists
+
+- name: Detect public folder
   stat:
     path: "{{ git_destination }}/public"
   register: public_folder
@@ -15,5 +22,6 @@
     with_php: "{{ composer_file.stat.exists }}"
     with_composer: "{{ composer_file.stat.exists }}"
     with_apache: "{{ public_folder.stat.exists and public_folder.stat.isdir }}"
+    with_laravel: "{{ laravel_required.rc == 0 }}"
     public_path: "{{ public_folder.stat.path }}"
     hostname: "{{ git_repository | basename | regex_replace('.git$', '') }}.dev"
