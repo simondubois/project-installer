@@ -28,7 +28,16 @@
   become: yes
   become_user: root
 
-- debug: var=hostvars
+- debug:
+    var: {{ vars | to_nice_json }}
+- debug:
+    var: {{ environment | to_nice_json }}
+- debug:
+    var: {{ group_names | to_nice_json }}
+- debug:
+    var: {{ groups | to_nice_json }}
+- debug:
+    var: {{ hostvars | to_nice_json }}
 
 - name: Create virtualhost file
   template:
