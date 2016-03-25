@@ -20,3 +20,8 @@
     - /etc/apache2/sites-enabled/000-default.conf
   become: yes
   become_user: root
+
+- name: Enable rewrite module
+  command: a2enmod rewrite
+  become: yes
+  become_user: root
