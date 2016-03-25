@@ -1,0 +1,6 @@
+
+hostfile: "/etc/hosts"
+
+hostip: "127.0.0.1"
+
+hostname: "{{ git_repository | basename }}.dev"
