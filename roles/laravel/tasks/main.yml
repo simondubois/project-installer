@@ -1,9 +1,17 @@
 ---
 
+- name: create .env file
+  copy:
+    src: "{{ git_destination }}/.env.example"
+    dest: "{{ git_destination }}/.env"
+    force: no
+  register: create_env
+
 - name: generate application key
   command: php artisan key:generate
   args:
     chdir: "{{ git_destination }}"
+  when: create_env.changed
 
 - name: make laravel directories writable
   file:
