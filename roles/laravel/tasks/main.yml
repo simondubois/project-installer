@@ -1,5 +1,10 @@
 ---
 
+- name: generate application key
+  command: php artisan key:generate
+  args:
+    chdir: "{{ git_destination }}"
+
 - name: make laravel directories writable
   file:
     path: "{{ item }}"
