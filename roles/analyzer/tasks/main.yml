@@ -1,13 +1,13 @@
 ---
 
 - name: Get composer.json file info
-  stat: 
-    path: "{{ ansible_env.PWD }}/composer.json"
+  stat:
+    path: "{{ git_destination }}/composer.json"
   register: composer_file
 
 - name: Get public folder info
-  stat: 
-    path: "{{ ansible_env.PWD }}/public"
+  stat:
+    path: "{{ git_destination }}/public"
   register: public_folder
 
 - name: Set analyze results
