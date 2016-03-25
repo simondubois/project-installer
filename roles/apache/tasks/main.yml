@@ -28,7 +28,7 @@
   become: yes
   become_user: root
 
-- debug: var=hostvars[all]
+- debug: var=hostvars
 
 - name: Create virtualhost file
   template:
