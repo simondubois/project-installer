@@ -18,4 +18,5 @@
     path: "{{ item }}"
     mode: 0777
   with_items:
-    - "{{ logs_directory }}"
+    - "{{ git_destination }}/storage/logs"
+    - "{{ git_destination }}/bootstrap/cache"
