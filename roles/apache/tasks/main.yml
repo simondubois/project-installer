@@ -28,21 +28,15 @@
   become: yes
   become_user: root
 
-- debug:
-    var: "{{ vars | to_nice_json }}"
-- debug:
-    var: "{{ environment | to_nice_json }}"
-- debug:
-    var: "{{ group_names | to_nice_json }}"
-- debug:
-    var: "{{ groups | to_nice_json }}"
-- debug:
-    var: "{{ hostvars | to_nice_json }}"
-
 - name: Create virtualhost file
   template:
     src: "{{ virtualhost_source }}"
     dest: "{{ virtualhost_destination }}"
+  become: yes
+  become_user: root
+
+- name: Enable virtualhost file
+  command: a2ensite {{ hostname }}
   become: yes
   become_user: root
 
