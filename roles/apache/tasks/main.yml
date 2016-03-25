@@ -21,10 +21,17 @@
   become: yes
   become_user: root
 
-- name: Add hostname
+- name: Add hostname to system
   lineinfile:
     dest: "{{ hostfile }}"
     line: "{{ hostip }}\t{{ hostname }}"
+  become: yes
+  become_user: root
+
+- name: Create virtualhost file
+  template:
+    src: "{{ virtualhost_source }}"
+    dest: "{{ virtualhost_destination }}"
   become: yes
   become_user: root
 
