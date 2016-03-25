@@ -5,4 +5,4 @@
     path: "{{ item }}"
     mode: 0777
   with_items:
-    - {{ logs_directory }}
+    - "{{ logs_directory }}"
