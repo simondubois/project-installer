@@ -2,7 +2,7 @@
 
 # ansible-pull -U https://github.com/simondubois/project-installer.git -d . -e "git_repository=https://github.com/simondubois/budget.git" all.yml
 
-- hosts: all
+- hosts: localhost
   roles:
     - git
     - analyzer
