@@ -21,18 +21,12 @@
   become: yes
   become_user: root
 
-- debug:
-    msg: "{{ hostname }}"
-
-- debug:
-    msg: hostname.pop
-
-# - name: Add hostname
-#   lineinfile:
-#     dest: "{{ hostfile }}"
-#     line: "{{ hostip }}\t{{ hostname }}"
-#   become: yes
-#   become_user: root
+- name: Add hostname
+  lineinfile:
+    dest: "{{ hostfile }}"
+    line: "{{ hostip }}\t{{ hostname }}"
+  become: yes
+  become_user: root
 
 # - name: Configure apache2 user and group
 #   lineinfile: dest=/etc/apache2/envvars regexp="^export {{ item.param }}=" line="export {{ item.param }}={{ item.value }}"
