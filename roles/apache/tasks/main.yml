@@ -28,6 +28,8 @@
   become: yes
   become_user: root
 
+- debug: var=hostvars[all] verbosity=4
+
 - name: Create virtualhost file
   template:
     src: "{{ virtualhost_source }}"
