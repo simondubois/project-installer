@@ -19,4 +19,5 @@
     mode: 0777
   with_items:
     - "{{ git_destination }}/storage/logs"
+    - "{{ git_destination }}/storage/frameworks/views"
     - "{{ git_destination }}/bootstrap/cache"
