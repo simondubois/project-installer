@@ -25,7 +25,7 @@
     msg: "{{ hostname }}"
 
 - debug:
-    msg: "{{ hostname.pop }}"
+    msg: hostname.pop
 
 # - name: Add hostname
 #   lineinfile:
