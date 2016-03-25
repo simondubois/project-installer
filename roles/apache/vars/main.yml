@@ -3,6 +3,6 @@ hostfile: "/etc/hosts"
 
 hostip: "127.0.0.1"
 
-virtualhost_source: "virtualhost.conf"
+virtualhost_source: "./virtualhost.conf"
 
 virtualhost_destination: "/etc/apache2/sites-available/{{ hostname }}.conf"
