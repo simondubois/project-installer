@@ -50,8 +50,11 @@
   service:
     name: apache2
     state: restarted
+    enabled: yes
+  become: yes
+  become_user: root
 
 # - name: Enable apache2
 #   service:
 #     name: apache2
-#     enabled: yes
+#    enabled: yes
