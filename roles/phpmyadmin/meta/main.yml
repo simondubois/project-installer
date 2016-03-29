@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: apache, hostname: 'phpmyadmin.dev' }
+  - { role: apache, hostname: "phpmyadmin.dev" }
