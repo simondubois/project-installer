@@ -27,6 +27,8 @@
 
 - name: restart mysql
   service:
-    name: mysqld
+    name: mysql
     state: restarted
     enabled: yes
+  become: yes
+  become_user: root
