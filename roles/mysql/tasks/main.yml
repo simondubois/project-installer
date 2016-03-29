@@ -6,6 +6,7 @@
   with_items:
     - mysql-client-5.5
     - mysql-server-5.5
+    - python-mysqldb
   become: yes
   become_user: root
 
