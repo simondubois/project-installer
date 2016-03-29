@@ -1,0 +1,24 @@
+---
+
+- name: install mysql
+  apt:
+    pkg: mysql
+
+# - name: start mysql
+#   service:
+#     name: mysql
+#     state: started
+
+- name: set mysql credentials
+  mysql_user:
+    name: "{{ user }}"
+    password: "{{ password }}"
+
+# - name: Remove the MySQL test database
+#   mysql_db: db=test state=absent login_user=root login_password={{ mysql.password }}
+
+- name: restart mysql
+  service:
+    name: mysql
+    state: restarted
+    enabled: yes

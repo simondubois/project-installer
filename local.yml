@@ -22,3 +22,7 @@
       role: apache,
       when: "{{ with_apache }}"
     }
+    - {
+      role: mysql,
+      when: "{{ with_mysql }}"
+    }

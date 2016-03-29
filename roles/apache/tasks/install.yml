@@ -22,6 +22,8 @@
   become_user: root
 
 - name: Enable rewrite module
-  command: a2enmod rewrite
+  apache2_module:
+    name: rewrite
+    state: present
   become: yes
   become_user: root
