@@ -27,3 +27,10 @@
     state: present
   become: yes
   become_user: root
+
+- name: Enable mcrypt module
+  apache2_module:
+    name: mcrypt
+    state: present
+  become: yes
+  become_user: root
