@@ -10,17 +10,17 @@
   become: yes
   become_user: root
 
-- name: start mysql
-  service:
-    name: mysql
-    state: started
-  become: yes
-  become_user: root
+# - name: start mysql
+#   service:
+#     name: mysql
+#     state: started
+#   become: yes
+#   become_user: root
 
-- name: set mysql credentials
-  mysql_user:
-    name: "{{ user }}"
-    password: "{{ password }}"
+# - name: set mysql credentials
+#   mysql_user:
+#     name: "{{ user }}"
+#     password: "{{ password }}"
 
 # - name: Remove the MySQL test database
 #   mysql_db: db=test state=absent login_user=root login_password={{ mysql.password }}
