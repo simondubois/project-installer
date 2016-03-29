@@ -20,6 +20,7 @@
     }
     - {
       role: apache,
+      hostname: "{{ project_name }}.dev",
       when: "{{ with_apache }}"
     }
     - {
@@ -28,10 +29,5 @@
     }
     - {
       role: phpmyadmin,
-      when: "{{ with_mysql }}"
-    }
-    - {
-      role: apache,
-      hostname: "phpmyadmin.dev",
       when: "{{ with_mysql }}"
     }
