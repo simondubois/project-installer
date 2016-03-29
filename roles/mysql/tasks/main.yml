@@ -6,6 +6,8 @@
   with_items:
     - mysql-client-5.5
     - mysql-server-5.5
+  become: yes
+  become_user: root
 
 # - name: start mysql
 #   service:
