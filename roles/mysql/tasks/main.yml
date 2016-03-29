@@ -10,10 +10,10 @@
   become: yes
   become_user: root
 
-# - name: start mysql
-#   service:
-#     name: mysql
-#     state: started
+- name: start mysql
+  service:
+    name: mysql
+    state: started
 
 - name: set mysql credentials
   mysql_user:
