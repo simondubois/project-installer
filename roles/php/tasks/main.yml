@@ -5,3 +5,10 @@
     name: php5
   become: yes
   become_user: root
+
+- name: Install mysql driver
+  apt:
+    name: php5
+  become: yes
+  become_user: root
+  when: "{{ with_mysql }}"
