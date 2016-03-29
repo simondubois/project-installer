@@ -1,4 +1,8 @@
 ---
 
 dependencies:
-  - { role: apache, hostname: "phpmyadmin.dev" }
+  - {
+    role: apache,
+    hostname: "phpmyadmin.dev",
+    public_path: "/var/www/html/phpmyadmin"
+  }
