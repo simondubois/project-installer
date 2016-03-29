@@ -5,3 +5,11 @@
     name: "phpmyadmin"
   become: yes
   become_user: root
+
+- name: enable
+  file:
+    src: "/usr/share/phpmyadmin"
+    dest: "/var/www/html/phpmyadmin"
+    state: link
+  become: yes
+  become_user: root
