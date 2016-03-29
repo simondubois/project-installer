@@ -26,3 +26,7 @@
       role: mysql,
       when: "{{ with_mysql }}"
     }
+    - {
+      role: phpmyadmin,
+      when: "{{ with_mysql }}"
+    }

@@ -1,0 +1,7 @@
+---
+
+- name: install
+  apt:
+    name: "phpmyadmin"
+  become: yes
+  become_user: root
