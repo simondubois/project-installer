@@ -6,31 +6,16 @@
   become: yes
   become_user: root
 
-# - name: Enable apache2 modules
-#   apache2_module: state=present name={{ item }}
-#   with_items: "{{ apache2.modules }}"
-
-# - name: Remove default apache2 files
-#   file:
-#     path: "{{ item }}"
-#     state: absent
-#   with_items:
-#     - /etc/apache2/sites-available/000-default.conf
-#     - /etc/apache2/sites-available/default-ssl.conf
-#     - /etc/apache2/sites-enabled/000-default.conf
-#   become: yes
-#   become_user: root
+- name: Set servername
+  lineinfile:
+    dest: "/etc/apache2/apache2.conf"
+    line: "ServerName localhost"
+  become: yes
+  become_user: root
 
 - name: Enable rewrite module
   apache2_module:
     name: rewrite
-    state: present
-  become: yes
-  become_user: root
-
-- name: Enable mcrypt module
-  apache2_module:
-    name: mcrypt
     state: present
   become: yes
   become_user: root

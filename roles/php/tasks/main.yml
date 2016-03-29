@@ -19,3 +19,8 @@
   become: yes
   become_user: root
   when: "{{ with_mysql }}"
+
+- name: Enable mcrypt
+  command: php5enmod mcrypt
+  become: yes
+  become_user: root
