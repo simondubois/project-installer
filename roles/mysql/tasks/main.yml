@@ -10,6 +10,13 @@
   become: yes
   become_user: root
 
+- name: install php driver
+  apt:
+    pkg: php5-mysql
+  when: "{{ with_php }}"
+  become: yes
+  become_user: root
+
 # - name: start mysql
 #   service:
 #     name: mysql
