@@ -14,6 +14,8 @@
     line: "{{ item.line }}"
   with_items:
     - { regexp: "^DB_DATABASE=", line: "DB_DATABASE={{ project_name }}" }
+    - { regexp: "^DB_USERNAME=", line: "DB_USERNAME={{ project_name }}" }
+    - { regexp: "^DB_PASSWORD=", line: "DB_PASSWORD={{ project_name }}" }
 
 - name: generate application key
   command: php artisan key:generate
