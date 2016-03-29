@@ -13,3 +13,10 @@
     state: link
   become: yes
   become_user: root
+
+- name: configure
+  file:
+    src: "custom.config.inc.php"
+    dest: "/etc/phpmyadmin/conf.d/custom.config.inc.php"
+  become: yes
+  become_user: root
