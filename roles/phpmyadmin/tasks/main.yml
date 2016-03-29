@@ -15,7 +15,7 @@
   become_user: root
 
 - name: configure
-  file:
+  copy:
     src: "custom.config.inc.php"
     dest: "/etc/phpmyadmin/conf.d/custom.config.inc.php"
   become: yes
