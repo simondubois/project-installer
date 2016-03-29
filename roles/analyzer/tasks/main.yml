@@ -25,14 +25,14 @@
 
 - name: Detect migration files
   find:
-    paths: "{{ git_destination }}/migrations"
+    paths: "{{ git_destination }}/database/migrations"
     patterns: "*.php"
   when: laravel_required.rc == 0
   register: migration_files
 
 - name: Detect seeds files
   find:
-    paths: "{{ git_destination }}/seeds"
+    paths: "{{ git_destination }}/database/seeds"
     patterns: "*.php"
   when: laravel_required.rc == 0
   register: seed_files
