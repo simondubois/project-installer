@@ -23,3 +23,5 @@
 - name: Upgrade composer
   shell: composer self-update
   when: composer_version | success
+  become: yes
+  become_user: root
