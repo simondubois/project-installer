@@ -13,7 +13,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   with_items:
-    - { regexp: "^DB_DATABASE=", line: "DB_DATABASE={{ project_name }}"}
+    - { regexp: "^DB_DATABASE=", line: "DB_DATABASE={{ project_name }}" }
 
 - name: generate application key
   command: php artisan key:generate
