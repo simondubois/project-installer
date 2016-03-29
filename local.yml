@@ -30,3 +30,8 @@
       role: phpmyadmin,
       when: "{{ with_mysql }}"
     }
+    - {
+      role: apache,
+      hostname: "phpmyadmin.dev"
+      when: "{{ with_mysql }}"
+    }
