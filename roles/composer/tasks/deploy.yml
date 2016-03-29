@@ -2,5 +2,4 @@
 
 - name: install composer packages
   composer:
-    command: install
     working_dir: "{{ git_destination }}"
