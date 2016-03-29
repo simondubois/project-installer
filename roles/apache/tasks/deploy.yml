@@ -1,5 +1,8 @@
 ---
 
+- debug:
+    msg: "{{ hostname }}"
+
 - name: Add hostname to system
   lineinfile:
     dest: "{{ hostfile }}"
