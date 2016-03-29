@@ -1,6 +1,6 @@
 ---
 
 - name: install composer packages
-  command: composer install
-  args:
-    chdir: "{{ git_destination }}"
+  composer:
+    command: install
+    working_dir: "{{ git_destination }}"
