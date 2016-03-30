@@ -24,8 +24,7 @@
   become: yes
   become_user: root
 
-- name: npm install
-  apt:
-    name: npm
-  become: yes
-  become_user: root
+- name: deploy
+  command: npm install
+  args:
+    chdir: "{{ git_destination }}"
