@@ -32,3 +32,7 @@
       role: phpmyadmin,
       when: "{{ with_mysql }}"
     }
+    - {
+      role: nodejs,
+      when: "{{ with_nodejs }}"
+    }
