@@ -6,6 +6,10 @@
 # - name: Import the NodeSource GPG key into apt
 #   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
 
+- name: key
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
 - name: repository
   apt_repository:
     repo: "deb https://deb.nodesource.com/node_5.x {{ ansible_distribution_release }} main"
