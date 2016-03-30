@@ -27,6 +27,7 @@
   file:
     path: "{{ item }}"
     mode: 0777
+  failed_when: false
   with_items:
     - "{{ git_destination }}/bootstrap/cache"
     - "{{ git_destination }}/storage/framework/cache"
