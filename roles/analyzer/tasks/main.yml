@@ -46,6 +46,9 @@
   register: seed_files
   when: laravel_required.rc == 0 or lumen_required.rc == 0
 
+- debug:
+    msg: "{{ migration_files }}"
+
 - name: Set analyze results
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
