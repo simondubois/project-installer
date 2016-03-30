@@ -9,6 +9,8 @@
 - name: key
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  become: yes
+  become_user: root
 
 - name: repository
   apt_repository:
