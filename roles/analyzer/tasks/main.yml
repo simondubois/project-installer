@@ -37,14 +37,14 @@
     paths: "{{ git_destination }}/database/migrations"
     patterns: "*.php"
   register: migration_files
-  when: laravel_required.rc == 0 or lumen_required.rc == 0
+  when: laravel_required.rc == 0
 
 - name: Detect seeds files
   find:
     paths: "{{ git_destination }}/database/seeds"
     patterns: "*.php"
   register: seed_files
-  when: laravel_required.rc == 0 or lumen_required.rc == 0
+  when: laravel_required.rc == 0
 
 - debug:
     msg: "{{ migration_files }}"
