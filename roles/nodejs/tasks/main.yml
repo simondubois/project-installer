@@ -21,6 +21,11 @@
 - name: install
   apt:
     name: nodejs
-    update_cache: yes
+  become: yes
+  become_user: root
+
+- name: npm install
+  apt:
+    name: npm
   become: yes
   become_user: root
