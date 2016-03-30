@@ -12,12 +12,14 @@
   become: yes
   become_user: root
   when: "{{ with_mysql }}"
+  register: install_mcrypt
 
 - name: Install mcrypt
   apt:
     name: php5-mcrypt
   become: yes
   become_user: root
+  when: install_mcrypt.changed
 
 - name: Enable mcrypt
   command: php5enmod mcrypt
