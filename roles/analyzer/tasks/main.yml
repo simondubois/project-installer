@@ -9,6 +9,7 @@
   command: grep -q '"laravel/framework":' "{{ git_destination }}/composer.json"
   ignore_errors: true
   changed_when: false
+  failed_when: false
   register: laravel_required
   when: composer_file.stat.exists
 
