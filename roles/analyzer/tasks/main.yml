@@ -37,7 +37,6 @@
 
 - debug:
     msg: "{{ index_path }}, {{ index_path | dirname }}"
-    when: index_path is defined
 
 - name: sql files
   find:
