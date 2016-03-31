@@ -18,10 +18,16 @@
     - { regexp: "^DB_PASSWORD=", line: "DB_PASSWORD=" }
   when: "{{ with_mysql }}"
 
-- name: set key
-  command: php artisan key:generate
-  args:
-    chdir: "{{ git_destination }}"
+- name: generate key
+  command: php -r "echo md5(uniqid());"
+  register: generate_key
+  when: create_env.changed
+
+- name: save key
+  lineinfile:
+    dest: "{{ git_destination }}/.env"
+    regexp: "^APP_KEY="
+    line: "APP_KEY={{ generate_key.output }}"
   when: create_env.changed
 
 - name: make writable
@@ -29,7 +35,6 @@
     path: "{{ item }}"
     mode: 0777
   with_items:
-    - "{{ git_destination }}/bootstrap/cache"
     - "{{ git_destination }}/storage/framework/cache"
     - "{{ git_destination }}/storage/framework/sessions"
     - "{{ git_destination }}/storage/framework/views"

@@ -20,6 +20,10 @@
       when: "{{ with_laravel }}"
     }
     - {
+      role: lumen,
+      when: "{{ with_lumen }}"
+    }
+    - {
       role: apache,
       hostname: "{{ project_name }}.dev",
       public_path: "{{ git_destination }}/public",
