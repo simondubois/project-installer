@@ -3,6 +3,8 @@
 # ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/budget.git git_destination=$PWD"
 # ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/photos.git git_destination=$PWD"
 # ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/ubuntu-installer.git git_destination=$PWD"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/project-installer.git git_destination=$PWD"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/simon.git git_destination=$PWD"
 
 - hosts: localhost
   roles:
@@ -27,7 +29,7 @@
     - {
       role: apache,
       hostname: "{{ project_name }}.dev",
-      public_path: "{{ git_destination }}/public",
+      public_path: "{{ public_path }}",
       when: "{{ with_apache }}"
     }
     - {

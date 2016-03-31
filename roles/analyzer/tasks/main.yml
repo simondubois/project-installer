@@ -21,10 +21,17 @@
   register: lumen_required
   when: composer_file.stat.exists
 
-- name: public folder
-  stat:
-    path: "{{ git_destination }}/public"
-  register: public_folder
+- name: index file / public folder
+  set_fact:
+    public_path: "{{ item }}"
+  with_first_found:
+    - "{{ git_destination }}/index.php"
+    - "{{ git_destination }}/index.html"
+    - "{{ git_destination }}/public/index.php"
+    - "{{ git_destination }}/public/index.html"
+
+- debug:
+    msg: "{{ public_path }}"
 
 - name: sql files
   find:
@@ -53,7 +60,7 @@
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
     with_composer: "{{ composer_file.stat.exists }}"
-    with_apache: "{{ public_folder.stat.exists and public_folder.stat.isdir }}"
+    with_apache: "{{ public_path }}"
     with_laravel: "{{ composer_file.stat.exists and laravel_required.rc == 0 }}"
     with_lumen: "{{ composer_file.stat.exists and lumen_required.rc == 0 }}"
     with_mysql: "{{ sql_files.matched > 0 or (migration_files|success and migration_files.matched > 2) or (seed_files|success and seed_files.matched > 1) }}"
