@@ -18,7 +18,7 @@
   become: yes
   become_user: root
 
-- name: deploy dependencies
+- name: install dependencies
   command: npm install
   args:
     chdir: "{{ git_destination }}"
