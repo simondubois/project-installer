@@ -21,6 +21,9 @@
   register: lumen_required
   when: composer_file.stat.exists
 
+- debug:
+    msg: "{{ git_destination }}/index.php"
+
 - name: index file / public folder
   set_fact:
     public_path: "{{ item }}"
