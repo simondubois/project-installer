@@ -1,6 +1,6 @@
 ---
 
-- name: install mysql
+- name: install package
   apt:
     name: "{{ item }}"
   with_items:
@@ -10,7 +10,7 @@
   become: yes
   become_user: root
 
-- name: restart
+- name: restart service
   service:
     name: mysql
     state: started

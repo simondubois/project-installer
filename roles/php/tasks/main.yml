@@ -1,27 +1,27 @@
 ---
 
-- name: Install php5
+- name: install package
   apt:
     name: php5
   become: yes
   become_user: root
 
-- name: Install mysql driver
+- name: mysql driver
   apt:
-    name: php5
+    name: php5-mysqlnd
   become: yes
   become_user: root
   when: "{{ with_mysql }}"
   register: install_mcrypt
 
-- name: Install mcrypt
+- name: install mcrypt
   apt:
     name: php5-mcrypt
   become: yes
   become_user: root
   when: install_mcrypt.changed
 
-- name: Enable mcrypt
+- name: enable mcrypt
   command: php5enmod mcrypt
   become: yes
   become_user: root

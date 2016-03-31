@@ -1,4 +1,0 @@
-
-source: https://getcomposer.org/installer
-
-destination: /usr/local/bin/composer

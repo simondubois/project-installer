@@ -1,4 +1,59 @@
 ---
 
-- include: install.yml
-- include: deploy.yml
+- name: install package
+  apt:
+    name: apache2
+  become: yes
+  become_user: root
+
+- name: clear default
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/apache2/sites-available/000-default.conf
+    - /etc/apache2/sites-available/default-ssl.conf
+    - /etc/apache2/sites-enabled/000-default.conf
+  become: yes
+  become_user: root
+
+- name: set servername
+  lineinfile:
+    dest: "/etc/apache2/apache2.conf"
+    line: "ServerName localhost"
+  become: yes
+  become_user: root
+
+- name: enable rewrite
+  apache2_module:
+    name: rewrite
+    state: present
+  become: yes
+  become_user: root
+
+- name: add hostname
+  lineinfile:
+    dest: "/etc/hosts"
+    line: "127.0.0.1\t{{ hostname }}"
+  become: yes
+  become_user: root
+
+- name: create virtualhost
+  template:
+    src: "virtualhost.conf"
+    dest: "/etc/apache2/sites-available/{{ hostname }}.conf"
+  become: yes
+  become_user: root
+
+- name: enable virtualhost
+  command: a2ensite {{ hostname }}
+  become: yes
+  become_user: root
+
+- name: restart service
+  service:
+    name: apache2
+    state: restarted
+    enabled: yes
+  become: yes
+  become_user: root

@@ -1,13 +1,13 @@
 ---
 
-- name: create .env file
+- name: create .env
   copy:
     src: "{{ git_destination }}/.env.example"
     dest: "{{ git_destination }}/.env"
     force: no
   register: create_env
 
-- name: edit .env file
+- name: edit .env
   lineinfile:
     dest: "{{ git_destination }}/.env"
     regexp: "{{ item.regexp }}"
@@ -17,13 +17,13 @@
     - { regexp: "^DB_USERNAME=", line: "DB_USERNAME=root" }
     - { regexp: "^DB_PASSWORD=", line: "DB_PASSWORD=" }
 
-- name: generate application key
+- name: generate key
   command: php artisan key:generate
   args:
     chdir: "{{ git_destination }}"
   when: create_env.changed
 
-- name: make laravel directories writable
+- name: make writable
   file:
     path: "{{ item }}"
     mode: 0777

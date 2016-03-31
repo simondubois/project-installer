@@ -1,11 +1,11 @@
 ---
 
-- name: Detect composer.json file
+- name: composer.json file
   stat:
     path: "{{ git_destination }}/composer.json"
   register: composer_file
 
-- name: Detect laravel in composer.json
+- name: laravel in composer.json
   command: grep -q '"laravel/framework":' "{{ git_destination }}/composer.json"
   ignore_errors: true
   changed_when: false
@@ -13,7 +13,7 @@
   register: laravel_required
   when: composer_file.stat.exists
 
-- name: Detect lumen in composer.json
+- name: lumen in composer.json
   command: grep -q '"laravel/lumen-framework":' "{{ git_destination }}/composer.json"
   ignore_errors: true
   changed_when: false
@@ -21,37 +21,37 @@
   register: lumen_required
   when: composer_file.stat.exists
 
-- name: Detect public folder
+- name: public folder
   stat:
     path: "{{ git_destination }}/public"
   register: public_folder
 
-- name: Detect sql files
+- name: sql files
   find:
     paths: "{{ git_destination }}"
     patterns: "*.sql"
   register: sql_files
 
-- name: Detect migration files
+- name: migration files
   find:
     paths: "{{ git_destination }}/database/migrations"
     patterns: "*.php"
   register: migration_files
   when: laravel_required.rc == 0 or lumen_required.rc == 0
 
-- name: Detect seeds files
+- name: seeds files
   find:
     paths: "{{ git_destination }}/database/seeds"
     patterns: "*.php"
   register: seed_files
   when: laravel_required.rc == 0 or lumen_required.rc == 0
 
-- name: Detect package.json file
+- name: package.json file
   stat:
     path: "{{ git_destination }}/package.json"
   register: package_file
 
-- name: Set analyze results
+- name: set facts
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
     with_composer: "{{ composer_file.stat.exists }}"

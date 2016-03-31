@@ -1,4 +1,25 @@
 ---
 
-- include: install.yml
-- include: deploy.yml
+- name: check version
+  command: "composer --version"
+  register: composer_version
+  ignore_errors: true
+  failed_when: false
+  changed_when: false
+
+- name: install package
+  shell: "curl -sS https://getcomposer.org/installer | php && mv -f ./composer.phar /usr/local/bin/composer"
+  when: composer_version | failed
+  become: yes
+  become_user: root
+
+- name: make executable
+  file:
+    path: "/usr/local/bin/composer"
+    mode: 0755
+  become: yes
+  become_user: root
+
+- name: install dependencies
+  composer:
+    working_dir: "{{ git_destination }}"

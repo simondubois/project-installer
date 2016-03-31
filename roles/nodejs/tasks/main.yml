@@ -1,30 +1,24 @@
 ---
 
-# - name: Installing apt-key
-#   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
-
-# - name: Import the NodeSource GPG key into apt
-#   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
-
-- name: key
+- name: add key
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
   become: yes
   become_user: root
 
-- name: repository
+- name: add repository
   apt_repository:
     repo: "deb https://deb.nodesource.com/node_5.x {{ ansible_distribution_release }} main"
   become: yes
   become_user: root
 
-- name: install
+- name: install package
   apt:
     name: nodejs
   become: yes
   become_user: root
 
-- name: deploy
+- name: deploy dependencies
   command: npm install
   args:
     chdir: "{{ git_destination }}"
