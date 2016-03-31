@@ -30,7 +30,7 @@
       - "{{ git_destination }}/index.html"
       - "{{ git_destination }}/public/index.php"
       - "{{ git_destination }}/public/index.html"
-    skip: true
+      skip: true
 
 - debug:
     msg: "{{ public_path }}"
