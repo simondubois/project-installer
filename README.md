@@ -2,7 +2,7 @@
 # project-installer
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/simondubois/project-installer/master/screenshot.png" alt="Ubuntu logo" title="Ubuntu logo" style="max-width:100%;"><br>
+<img src="https://raw.githubusercontent.com/simondubois/project-installer/master/screenshot.png" alt="Git logo" title="Git logo" style="max-width:100%;"><br>
 CLI to deploy project for development
 </p>
 
