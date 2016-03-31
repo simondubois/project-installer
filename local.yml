@@ -5,6 +5,7 @@
 # clear ; ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/ubuntu-installer.git git_destination=$HOME/dev/ubuntu-installer"
 # clear ; ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/project-installer.git git_destination=$HOME/dev/project-installer"
 # clear ; ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/simon.git git_destination=$HOME/dev/simon"
+# clear ; ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/unsplash-downloader.git git_destination=$HOME/dev/unsplash-downloader"
 
 - hosts: localhost
   roles:

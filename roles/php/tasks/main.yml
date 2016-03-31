@@ -13,6 +13,12 @@
   become_user: root
   when: "{{ with_mysql }}"
 
+- name: install curl
+  apt:
+    name: php5-curl
+  become: yes
+  become_user: root
+
 - name: install mcrypt
   apt:
     name: php5-mcrypt
