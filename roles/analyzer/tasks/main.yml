@@ -21,9 +21,6 @@
   register: lumen_required
   when: composer_file.stat.exists
 
-- debug:
-    msg: "{{ git_destination }}/index.php"
-
 - name: index file / public folder
   set_fact:
     index_path: "{{ item }}"
@@ -38,9 +35,9 @@
 - debug:
     msg: "{{ index_path is defined }}"
 
-- debug:
-    msg: "{{ index_path }}, {{ index_path | dirname }}"
-    when: index_path is defined
+# - debug:
+#     msg: "{{ index_path }}, {{ index_path | dirname }}"
+#     when: index_path is defined
 
 - name: sql files
   find:
