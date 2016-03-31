@@ -25,10 +25,11 @@
   set_fact:
     public_path: "{{ item }}"
   with_first_found:
-    - "{{ git_destination }}/index.php"
-    - "{{ git_destination }}/index.html"
-    - "{{ git_destination }}/public/index.php"
-    - "{{ git_destination }}/public/index.html"
+    - files:
+      - "{{ git_destination }}/index.php"
+      - "{{ git_destination }}/index.html"
+      - "{{ git_destination }}/public/index.php"
+      - "{{ git_destination }}/public/index.html"
     skip: true
 
 - debug:
