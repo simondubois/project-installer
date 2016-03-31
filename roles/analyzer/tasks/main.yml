@@ -36,7 +36,7 @@
       skip: true
 
 - debug:
-    msg: "{{ index_path }}"
+    msg: "{{ index_path | success }}"
 
 - debug:
     msg: "{{ index_path | basepath }}"
