@@ -37,14 +37,12 @@
     paths: "{{ git_destination }}/database/migrations"
     patterns: "*.php"
   register: migration_files
-  when: composer_file.stat.exists and (laravel_required.rc == 0 or lumen_required.rc == 0)
 
 - name: seeds files
   find:
     paths: "{{ git_destination }}/database/seeds"
     patterns: "*.php"
   register: seed_files
-  when: composer_file.stat.exists and (laravel_required.rc == 0 or lumen_required.rc == 0)
 
 - name: package.json file
   stat:
