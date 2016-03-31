@@ -27,7 +27,7 @@
   lineinfile:
     dest: "{{ git_destination }}/.env"
     regexp: "^APP_KEY="
-    line: "APP_KEY={{ generate_key.output }}"
+    line: "APP_KEY={{ generate_key.stdout }}"
   when: create_env.changed
 
 - name: make writable
