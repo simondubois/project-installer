@@ -10,7 +10,7 @@
   become: yes
   become_user: root
 
-- name: restart service
+- name: start service
   service:
     name: mysql
     state: started

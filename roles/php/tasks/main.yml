@@ -19,7 +19,7 @@
     name: php5-mcrypt
   become: yes
   become_user: root
-  when: install_mcrypt.changed
+  when: not install_mcrypt.skipped and install_mcrypt.changed
 
 - name: enable mcrypt
   command: php5enmod mcrypt
