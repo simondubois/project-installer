@@ -4,5 +4,5 @@ dependencies:
   - {
     role: apache,
     hostname: "phpmyadmin.dev",
-    public_path: "/var/www/html/phpmyadmin"
+    document_root: "/var/www/html/phpmyadmin"
   }

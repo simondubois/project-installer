@@ -29,7 +29,7 @@
     - {
       role: apache,
       hostname: "{{ project_name }}.dev",
-      public_path: "{{ public_path }}",
+      document_root: "{{ public_path }}",
       when: "{{ with_apache }}"
     }
     - {
