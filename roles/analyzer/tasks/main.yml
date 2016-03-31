@@ -26,7 +26,7 @@
 
 - name: index file / public folder
   set_fact:
-    public_path: "{{ item }}"
+    index_path: "{{ item }}"
   with_first_found:
     - files:
       - "{{ git_destination }}/index.php"
@@ -36,7 +36,10 @@
       skip: true
 
 - debug:
-    msg: "{{ public_path }}"
+    msg: "{{ index_path }}"
+
+- debug:
+    msg: "{{ index_path | basepath }}"
 
 - name: sql files
   find:
