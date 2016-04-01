@@ -4,5 +4,5 @@ dependencies:
   - {
     role: apache,
     hostname: "phpmyadmin.dev",
-    document_root: "/var/www/html/phpmyadmin"
+    document_root: "/usr/share/phpmyadmin"
   }
