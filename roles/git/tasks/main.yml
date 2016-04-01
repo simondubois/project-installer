@@ -4,3 +4,4 @@
   git:
     repo: "{{ git_repository }}"
     dest: "{{ git_destination }}"
+    accept_hostkey: true
