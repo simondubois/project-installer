@@ -56,6 +56,6 @@ ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_rep
 ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=GIT_URL git_destination=CLONE_PATH" -d "TEMPORARY_PATH"
 
 # Example :
-ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/budget.git git_destination=$HOME/dev/budget" -d "/tmp/project-installer"
+ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/budget.git git_destination=$HOME/dev/budget" -d "/tmp/project-installer"
 
 ```
