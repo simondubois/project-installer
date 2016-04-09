@@ -32,6 +32,19 @@
   become: yes
   become_user: root
 
+- name: install xdebug
+  apt:
+    name: php5-xdebug
+  become: yes
+  become_user: root
+  register: install_xdebug
+
+- name: enable xdebug
+  command: php5enmod xdebug
+  when: not install_xdebug|skipped and install_xdebug|changed
+  become: yes
+  become_user: root
+
 - name: disable phar.readonly
   lineinfile:
     dest: /etc/php5/cli/php.ini
