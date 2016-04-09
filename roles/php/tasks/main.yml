@@ -31,3 +31,11 @@
   when: not install_mcrypt|skipped and install_mcrypt|changed
   become: yes
   become_user: root
+
+- name: disable phar.readonly
+  lineinfile:
+    dest: /etc/php5/cli/php.ini
+    regexp: '^(.*)phar.readonly( *)='
+    line: 'phar.readonly = Off'
+  become: yes
+  become_user: root
