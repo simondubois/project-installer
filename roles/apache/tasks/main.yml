@@ -14,7 +14,7 @@
     - /etc/apache2/sites-available/000-default.conf
     - /etc/apache2/sites-available/default-ssl.conf
     - /etc/apache2/sites-enabled/000-default.conf
-    - /var/wwww/html
+    - /var/www/html
   become: yes
   become_user: root
 
