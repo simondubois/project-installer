@@ -25,6 +25,22 @@
   become: yes
   become_user: root
 
+- name: set user
+  lineinfile:
+    dest: "/etc/apache2/envvars"
+    regexp: '^(#?)export APACHE_RUN_USER( *)='
+    line: "export APACHE_RUN_USER={{ ansible_env.USER }}"
+  become: yes
+  become_user: root
+
+- name: set group
+  lineinfile:
+    dest: "/etc/apache2/envvars"
+    regexp: '^(#?)export APACHE_RUN_GROUP( *)='
+    line: "export APACHE_RUN_GROUP={{ ansible_env.USER }}"
+  become: yes
+  become_user: root
+
 - name: enable rewrite
   apache2_module:
     name: rewrite
