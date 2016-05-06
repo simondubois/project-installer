@@ -5,6 +5,11 @@
     path: "{{ git_destination }}/composer.json"
   register: composer_file
 
+- name: composer.lock file
+  stat:
+    path: "{{ git_destination }}/composer.lock"
+  register: composer_lock
+
 - name: laravel in composer.json
   command: grep -q '"laravel/framework":' "{{ git_destination }}/composer.json"
   ignore_errors: true
@@ -32,12 +37,6 @@
       - "{{ git_destination }}/public/index.html"
       skip: true
 
-# - debug:
-#     msg: "{{ index_path is defined }}"
-
-# - debug:
-#     msg: "{{ index_path }}, {{ index_path | dirname }}"
-
 - name: sql files
   find:
     paths: "{{ git_destination }}"
@@ -64,7 +63,7 @@
 - name: set facts
   set_fact:
     with_php: "{{ composer_file.stat.exists }}"
-    with_composer: "{{ composer_file.stat.exists }}"
+    with_composer: "{{ composer_lock.stat.exists }}"
     with_apache: "{{ public_path is defined }}"
     with_laravel: "{{ composer_file.stat.exists and laravel_required.rc == 0 }}"
     with_lumen: "{{ composer_file.stat.exists and lumen_required.rc == 0 }}"
