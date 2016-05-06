@@ -4,4 +4,5 @@
   git:
     repo: "{{ git_repository }}"
     dest: "{{ git_destination }}"
+    version: "{{ (git_version is defined) | ternary(git_version,'HEAD') }}"
     accept_hostkey: true
