@@ -55,7 +55,7 @@
 
 - name: set session.save_path
   lineinfile:
-    dest: /etc/php5/cli/php.ini
+    dest: /etc/php5/apache2/php.ini
     regexp: '^(;*)session.save_path( *)='
     line: 'session.save_path = "/tmp"'
   become: yes
