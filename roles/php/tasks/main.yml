@@ -39,6 +39,14 @@
   become_user: root
   register: install_xdebug
 
+- name: configure xdebug
+  lineinfile:
+    dest: /etc/php5/mods-available/xdebug.ini
+    regexp: 'xdebug.max_nesting_level='
+    line: 'xdebug.max_nesting_level=500'
+  become: yes
+  become_user: root
+
 - name: enable xdebug
   command: php5enmod xdebug
   when: not install_xdebug|skipped and install_xdebug|changed
