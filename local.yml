@@ -18,16 +18,16 @@
       when: "{{ with_php }}"
     }
     - {
-      role: composer,
-      when: "{{ with_composer }}"
-    }
-    - {
       role: laravel,
       when: "{{ with_laravel }}"
     }
     - {
       role: lumen,
       when: "{{ with_lumen }}"
+    }
+    - {
+      role: composer,
+      when: "{{ with_composer }}"
     }
     - {
       role: apache,
