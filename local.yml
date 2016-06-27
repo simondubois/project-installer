@@ -18,6 +18,10 @@
       when: "{{ with_php }}"
     }
     - {
+      role: mysql,
+      when: "{{ with_mysql }}"
+    }
+    - {
       role: laravel,
       when: "{{ with_laravel }}"
     }
@@ -34,10 +38,6 @@
       hostname: "{{ project_name }}.dev",
       document_root: "{{ public_path }}",
       when: "{{ with_apache }}"
-    }
-    - {
-      role: mysql,
-      when: "{{ with_mysql }}"
     }
     - {
       role: phpmyadmin,
