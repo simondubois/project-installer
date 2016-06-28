@@ -17,6 +17,8 @@
     src: "/usr/bin/php5"
     dest: "/etc/alternatives/php"
     state: link
+  become: yes
+  become_user: root
 
 - name: mysql driver
   apt:
