@@ -1,10 +1,22 @@
 ---
 
+- name: add repository
+  apt_repository:
+    repo: "ppa:ondrej/php"
+  become: yes
+  become_user: root
+
 - name: install package
   apt:
     name: php5
   become: yes
   become_user: root
+
+- name: enable php5
+  file:
+    src: "/usr/bin/php5"
+    dest: "/etc/alternatives/php"
+    state: link
 
 - name: mysql driver
   apt:
