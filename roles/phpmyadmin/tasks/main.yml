@@ -6,6 +6,12 @@
   become: yes
   become_user: root
 
+- name: add repository
+  apt_repository:
+    repo: "ppa:ondrej/php"
+  become: yes
+  become_user: root
+
 - name: install
   apt:
     name: "phpmyadmin"
