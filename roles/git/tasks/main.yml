@@ -1,5 +1,10 @@
 ---
 
+- name: create directory
+  file:
+    path: "{{ git_destination }}"
+    state: directory
+
 - name: clone repository
   git:
     repo: "{{ git_repository }}"
