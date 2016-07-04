@@ -41,6 +41,7 @@
   find:
     paths: "{{ git_destination }}"
     patterns: "*.sql"
+    recurse: yes
   register: sql_files
 
 - name: migration files
