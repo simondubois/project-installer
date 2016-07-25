@@ -30,6 +30,13 @@
     line: "APP_KEY={{ generate_key.stdout }}"
   when: create_env.changed
 
+- name: set session
+  lineinfile:
+    dest: "{{ git_destination }}/.env"
+    regexp: "^SESSION_DRIVER="
+    line: "SESSION_DRIVER=cookie"
+  when: create_env.changed
+
 - name: make writable
   file:
     path: "{{ item }}"
