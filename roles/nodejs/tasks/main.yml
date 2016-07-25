@@ -19,6 +19,5 @@
   become_user: root
 
 - name: install dependencies
-  command: npm install
-  args:
-    chdir: "{{ git_destination }}"
+  npm:
+    path: "{{ git_destination }}"
