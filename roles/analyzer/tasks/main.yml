@@ -35,6 +35,8 @@
       - "{{ git_destination }}/index.html"
       - "{{ git_destination }}/public/index.php"
       - "{{ git_destination }}/public/index.html"
+      - "{{ git_destination }}/public_html/index.php"
+      - "{{ git_destination }}/public_html/index.html"
       skip: true
 
 - name: sql files
