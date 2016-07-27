@@ -52,3 +52,7 @@
       role: nodejs,
       when: "{{ with_nodejs }}"
     }
+    - {
+      role: rake,
+      when: "{{ with_rake }}"
+    }
