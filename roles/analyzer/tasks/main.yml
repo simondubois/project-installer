@@ -46,6 +46,13 @@
     recurse: yes
   register: sql_files
 
+- name: php files
+  find:
+    paths: "{{ git_destination }}"
+    patterns: "*.php"
+    recurse: yes
+  register: php_files
+
 - name: migration files
   find:
     paths: "{{ git_destination }}/database/migrations"
@@ -65,7 +72,7 @@
 
 - name: set facts
   set_fact:
-    with_php: "{{ composer_file.stat.exists }}"
+    with_php: "{{ composer_file.stat.exists or php_files.matched > 0 }}"
     with_composer: "{{ composer_lock.stat.exists }}"
     with_apache: "{{ public_path is defined }}"
     with_laravel: "{{ composer_file.stat.exists and laravel_required.rc == 0 }}"

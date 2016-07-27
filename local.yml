@@ -1,13 +1,18 @@
 ---
 
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/budget.git git_destination=$HOME/dev/budget"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/photos.git git_destination=$HOME/dev/photos"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/ubuntu-installer.git git_destination=$HOME/dev/ubuntu-installer"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/project-installer.git git_destination=$HOME/dev/project-installer"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/simon.git git_destination=$HOME/dev/simon"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/unsplash-downloader.git git_destination=$HOME/dev/unsplash-downloader"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/jsonresume-theme-paper.git git_destination=$HOME/dev/jsonresume-theme-paper"
-# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=https://github.com/simondubois/c4media-test.git git_destination=$HOME/dev/c4media-test"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/budget.git git_version=v2 git_destination=$HOME/budget"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/c4media-test.git git_version=master git_destination=$HOME/c4media-test"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/jsonresume-theme-paper.git git_version=master git_destination=$HOME/jsonresume-theme-paper"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/photos.git git_version=master git_destination=$HOME/photos"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/project-installer.git git_version=master git_destination=$HOME/project-installer"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/simon.git git_version=master git_destination=$HOME/simon"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/ubuntu-installer.git git_version=master git_destination=$HOME/ubuntu-installer"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:simondubois/unsplash-downloader.git git_version=master git_destination=$HOME/unsplash-downloader"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:c4webbutveckling/wedeal.git git_version=dev-bugfixes git_destination=/var/www/wedeal"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:c4webbutveckling/martenssons-kampanjsida2016.git git_version=master git_destination=/var/www/martenssons-kampanjsida2016"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:c4webbutveckling/exakta-addresspicker.git git_version=master git_destination=/var/www/exakta-addresspicker"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:c4webbutveckling/schroder-besiktningsrapport.git git_version=master git_destination=/var/www/schroder-besiktningsrapport"
+# ansible-pull -U https://github.com/simondubois/project-installer.git -e "git_repository=git@github.com:c4webbutveckling/nallebudet.git git_version=dev-orderfrontend git_destination=/var/www/nallebudet"
 
 - hosts: localhost
   roles:
